@@ -11,6 +11,18 @@ describe SessionsController do
         }
       }
     end
+    describe "in middle of other GET action" do
+      before do
+        session["user_action"] = {}
+        session["user_action"]["method"] = :get
+        session["user_action"]["url"] = new_event_url(:key1 => :val1)
+        @user = User.create! "provider" => "some_provider", "uid" => "some_uid"
+      end
+      it "redirects to action after login" do
+        post :create
+        response.should redirect_to(new_event_url(:key1 => :val1))
+      end
+    end
     describe "user exists" do
       before do
         @user = User.create! "provider" => "some_provider", "uid" => "some_uid"

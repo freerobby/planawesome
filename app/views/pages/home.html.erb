@@ -1,6 +1,11 @@
-<% if current_user %>
-  Welcome, <%= current_user.name %>!
-  <%= link_to "[Sign Out]", signout_path %>
-<% else %>
-  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-<% end %>
+<p>
+  <% if current_user %>
+    Welcome, <%= current_user.name %>!
+    <%= link_to "[Sign Out]", signout_path %>
+  <% else %>
+    <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+  <% end %>
+</p>
+<p>
+  <%= link_to "Check out the events!", events_path %>
+</p>

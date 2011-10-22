@@ -1,11 +1,14 @@
 Planawesome::Application.routes.draw do
+  resources :events
+
   root :to => "high_voltage/pages#show", :id => "home"
   
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   
-  resources :users
+  resources :events
   resources :sessions
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

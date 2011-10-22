@@ -1,0 +1,33 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Starts at</th>
+    <th>Min attendance</th>
+    <th>Max attendance</th>
+    <th>Organizer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.location %></td>
+    <td><%= event.starts_at %></td>
+    <td><%= event.min_attendance %></td>
+    <td><%= event.max_attendance %></td>
+    <td><%= event.user.name %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) if is_owner?(event) %></td>
+    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete if is_owner?(event) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>
