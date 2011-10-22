@@ -18,6 +18,9 @@ end
 
 gem 'jquery-rails'
 
+gem "high_voltage", "~>1.0"
+gem "omniauth", "~>0.3"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -30,6 +33,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+group :production do
+  gem "pg", "~>0.11"
+end
+
 group :development do
   gem "heroku", "~>2.10"
 end
@@ -37,5 +44,6 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem "factory_girl_rails", "~>1.3"
   gem "rspec-rails", "~>2.7"
 end
