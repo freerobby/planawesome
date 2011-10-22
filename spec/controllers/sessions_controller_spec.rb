@@ -35,4 +35,12 @@ describe SessionsController do
       end
     end
   end
+  
+  describe "#destroy" do
+    it "clears user_id from session" do
+      session[:user_id] = 5
+      delete :destroy
+      session[:user_id].should be_nil
+    end
+  end
 end

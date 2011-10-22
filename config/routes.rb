@@ -2,6 +2,7 @@ Planawesome::Application.routes.draw do
   root :to => "high_voltage/pages#show", :id => "home"
   
   match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
   
   resources :users
   resources :sessions
