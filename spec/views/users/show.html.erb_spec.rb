@@ -12,9 +12,9 @@ describe "users/show.html.erb" do
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Provider/)
+    rendered.should_not match(/Provider/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Uid/)
+    rendered.should_not match(/Uid/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Name/)
   end
